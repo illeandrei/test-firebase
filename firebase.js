@@ -1,6 +1,6 @@
 var database,
     score = get('.score'),
-    counter = 1;
+    counter = 0;
 
 setup();
 
@@ -49,16 +49,29 @@ function createList(data) {
 }
 
 get('button').addEventListener('click', function () {
-    score.innerText = counter++;
+    get('h1').style.color = 'black';
+    score.innerText = ++counter;
+});
+
+get('h1').addEventListener('click', function () {
+    counter = 0;
+    score.innerText = counter;
 });
 
 get('form').addEventListener('submit', function (e) {
     e.preventDefault();
     var ref = database.ref('scores');
 
-    ref.push({
+    var data = {
         score: parseInt(get('.score').innerText),
         initials: get('input').value
-    });
+    };
+
+    if (!data.score || !data.initials) {
+        get('h1').style.color = 'red';
+    } else {
+        ref.push(data);
+    }
+
 });
 
