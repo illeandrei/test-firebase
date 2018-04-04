@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Test Firebase</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <style>
+            .row {
+                padding: 10px 15px;
+            }
+            h1 {
+                text-align: center;
+            }
+            ul {
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body class="container">
+        <h2>Test Firebase</h2>
+
+        <div class="row">
+            <h1 class="col-sm-11 score">0</h1>
+            <button class="col-sm-1 btn btn-warning">Click</button>
+        </div>
+
+        <form class="row">
+            <input class="col-sm-11 form-control" type="text" placeholder="name">
+            <button class="col-sm-1 btn btn-primary" type="submit">Submit</button>
+        </form>
+
+        <div class="list-group"></div>
+
+        <script src="firebase.js"></script>
+    </body>
+</html>
