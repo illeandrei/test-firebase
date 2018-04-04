@@ -1,23 +1,5 @@
-var database,
-    score = get('.score'),
-    counter = 0;
-
-setup();
-
-function setup() {
-    var config = {
-        apiKey: "AIzaSyAy8HJ5xEljp0x5vGL77rnytOjjrCs_sS4",
-        authDomain: "clicking-app-9f559.firebaseapp.com",
-        databaseURL: "https://clicking-app-9f559.firebaseio.com",
-        projectId: "clicking-app-9f559",
-        storageBucket: "",
-        messagingSenderId: "482292199247"
-    };
-    firebase.initializeApp(config);
-    database = firebase.database();
-
-    var ref = database.ref('scores');
-    ref.on('value', gotData, errData);
+function get(selector) {
+    return document.querySelector(selector);
 }
 
 function gotData(data) {
@@ -29,9 +11,11 @@ function errData(err) {
     console.error('Error', err);
 }
 
-function get(selector) {
-    return document.querySelector(selector);
-}
+var score = get('.score'),
+    counter = 0,
+    ref = database.ref('scores');
+
+ref.on('value', gotData, errData);
 
 function createList(data) {
     var scores = data.val(),
@@ -48,7 +32,7 @@ function createList(data) {
     return list + '</ul>';
 }
 
-get('button').addEventListener('click', function () {
+get('#click').addEventListener('click', function () {
     get('h1').style.color = 'black';
     score.innerText = ++counter;
 });
@@ -73,5 +57,10 @@ get('form').addEventListener('submit', function (e) {
         ref.push(data);
     }
 
+});
+
+get('#btnSignOut').addEventListener('click', function (e) {
+    firebase.auth().signOut();
+    location.href = '/clicking-app';
 });
 

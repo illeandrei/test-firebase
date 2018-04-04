@@ -1,35 +1,42 @@
-<html>
-    <head>
-        <title>Test Firebase</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-        <style>
-            .row {
-                padding: 10px 15px;
-            }
-            h1 {
-                text-align: center;
-            }
-            ul {
-                padding: 0;
-            }
-        </style>
-    </head>
-    <body class="container">
-        <h2>Test Firebase</h2>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <div class="row">
-            <h1 class="col-sm-11 score">0</h1>
-            <button class="col-sm-1 btn btn-warning">Click</button>
-        </div>
+    <title>Login Clicking App</title>
 
-        <form class="row">
-            <input class="col-sm-11 form-control" type="text" placeholder="name" required>
-            <button class="col-sm-1 btn btn-primary" type="submit">Submit</button>
-        </form>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="style/signin.css" rel="stylesheet">
 
-        <div class="list-group"></div>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+</head>
 
-        <script src="firebase.js"></script>
-    </body>
+<body class="text-center">
+    <form class="form-signin">
+        <img class="mb-4" src="images/mouse-click.png" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+
+        <!--<div class="checkbox mb-3">-->
+            <!--<label>-->
+                <!--<input type="checkbox" value="remember-me"> Remember me-->
+            <!--</label>-->
+        <!--</div>-->
+
+        <button id="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button id="btnSignUp" class="btn btn-lg btn-light btn-block" type="submit">Sign up</button>
+
+        <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+    </form>
+
+    <script src="scripts/firebase.js"></script>
+    <script src="scripts/signin.js"></script>
+</body>
 </html>
